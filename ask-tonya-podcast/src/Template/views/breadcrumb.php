@@ -1,0 +1,1 @@
+<span itemprop="name"><a href="<?php echo esc_url( $url ); ?>" itemprop="item"><span itemprop="name"><?php esc_html_e( $name ); ?></span></a></span>

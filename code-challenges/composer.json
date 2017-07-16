@@ -1,0 +1,35 @@
+{
+  "name": "uptechlabs/social-genesis-seo",
+  "description": "User History - Adds features such as favorites, watch later, videos watch history, and more to provide a friendly membership experience.  Members can then go to through History page to quickly find the resources they want and need.",
+  "type": "project",
+  "keywords": [
+    "wordpress",
+    "wp",
+    "plugin"
+  ],
+  "homepage": "https://uptechlabs.io",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "hellofromTonya",
+      "email": "hellofromtonya@uptechlabs.io"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "UpTechLabs\\SocialGenesisSEO\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "config": {
+    "vendor-dir": "assets/vendor"
+  },
+  "minimum-stability": "dev"
+}

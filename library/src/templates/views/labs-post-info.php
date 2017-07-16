@@ -1,0 +1,3 @@
+<p class="entry-meta">
+	<span class="video-stats"><i class="fa fa-video-camera"></i> <?php printf( '%d %s', (int) genesis_get_custom_field( '_number_of_videos' ), __( 'Videos', 'library' ) ); ?> <i class="fa fa-clock-o"></i> <?php printf( '%s %s', esc_html( genesis_get_custom_field( '_video_runtime' ) ), __( 'Runtime', 'library' ) ); ?></span> <span class="fa fa-calendar"></span> <?php echo do_shortcode( '[post_date]' ); ?>
+</p>

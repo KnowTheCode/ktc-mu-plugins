@@ -1,0 +1,61 @@
+{
+    "name" 			: "uptechlabs/library",
+    "description" 	: "Library Plugin adds all the functionality we need for our video, lab, and insight libraries",
+    "type"          : "project",
+    "keywords" 		: ["wordpress", "wp", "plugin"],
+    "homepage" 		: "https://UpTechLabs.io",
+    "license" 		: "GPL-2.0+",
+    "authors": [
+        {
+            "name" 	: "hellofromTonya",
+            "email" : "hellofromtonya@uptechlabs.io"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Library\\": "src/"
+        },
+        "classmap": [
+            "src/class-plugin.php",
+
+            "src/admin/settings/class-library-options.php",
+
+            "src/episodes/class-controller.php",
+            "src/episodes/metabox/class-library-options.php",
+            "src/episodes/metadata/class-factory.php",
+            "src/episodes/metadata/class-metadata.php",
+            "src/episodes/metadata/i-metadata-contract.php",
+            "src/episodes/playlist/class-playlist.php",
+            "src/episodes/playlist/class-shortcode.php",
+
+            "src/series/class-controller.php",
+            "src/series/metabox/class-series-options.php",
+
+            "src/shortcode/class-content-adder.php",
+            "src/shortcode/class-donext.php",
+            "src/shortcode/class-embedpost.php",
+            "src/shortcode/class-insight.php",
+            "src/shortcode/class-latest.php",
+            "src/shortcode/class-vimeo.php",
+            "src/shortcode/class-whats-new.php"
+        ],
+        "files": [
+            "src/support/helpers.php",
+            "src/episodes/helpers.php",
+            "src/episodes/playlist/helpers.php",
+            "src/structure/excerpts.php"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "vendor-dir": "assets/vendor"
+    },
+    "minimum-stability": "dev"
+}
