@@ -8,6 +8,7 @@
  * @link        https://KnowTheCode.io
  * @license     GPL-2.0+
  */
+
 namespace KnowtheCode\AskTonyaPodcast\Template;
 
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
@@ -15,13 +16,13 @@ remove_all_actions( 'genesis_entry_content' );
 remove_action( 'genesis_entry_header', 'genesis_do_post_format_image', 4 );
 remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
 
-add_filter( 'body_class', function( $classes ){
+add_filter( 'body_class', function ( $classes ) {
 	$classes[] = 'ask-tonya';
 
 	return $classes;
-});
+} );
 
-add_action( 'genesis_before_while', __NAMESPACE__ .  '\add_in_the_header_contents' );
+add_action( 'genesis_before_while', __NAMESPACE__ . '\add_in_the_header_contents' );
 /**
  * Hey let's add in the Page Title and stuff that we put into the editor for
  * this page.
@@ -66,23 +67,7 @@ function render_episode_excerpt() {
 	include( __DIR__ . '/views/episode-readmore.php' );
 }
 
-//add_filter( 'get_the_content_more_link', __NAMESPACE__ . '\change_the_read_more_link' );
-///**
-// * Let's change the read more link to a "Watch. Learn." button.
-// *
-// * @since 1.0.0
-// *
-// * @param string $html
-// *
-// * @return string
-// */
-//function change_the_read_more_link( $html ) {
-//	$html = str_replace( '&#x02026;', '', $html );
-//	$html = str_replace( '[Read more...]', 'Watch. Learn.', $html );
-//	return '</p><p>' . $html;
-//};
-
-add_action('genesis_entry_footer', __NAMESPACE__ . '\render_closing_div', 99 );
+add_action( 'genesis_entry_footer', __NAMESPACE__ . '\render_closing_div', 99 );
 /**
  * Since we adding a `<div>` to wrap up the content, we need to close it off.
  *
@@ -94,40 +79,62 @@ function render_closing_div() {
 	echo '</div>';
 }
 
-
+/**
+ * Get the metadata for this episode.
+ *
+ * @since 1.0.0
+ *
+ * @param string $key
+ *
+ * @return mixed
+ */
 function get_episode_metadata( $key = '' ) {
 	static $metadata;
 
-	if ( ! $metadata ) {
-		$metadata = get_post_meta( get_the_ID(), '_asktonya_episode_metadata' );
-		if ( ! empty( $metadata ) ) {
-			$metadata = array_shift( $metadata );
+	$post_id = get_the_ID();
+
+	if ( ! isset( $metadata[ $post_id ] ) ) {
+		$post_metadata = get_post_meta( $post_id, '_asktonya_episode_metadata' );
+
+		if ( ! empty( $post_metadata ) ) {
+			$metadata[ $post_id ] = array_shift( $post_metadata );
 		}
+	}
+
+	if ( ! isset( $metadata[ $post_id ] ) ) {
+		return;
 	}
 
 	if ( $key ) {
 
-		if ( isset( $metadata[ $key ] ) ) {
-			return $metadata[ $key ];
+		if ( isset( $metadata[ $post_id ][ $key ] ) ) {
+			return $metadata[ $post_id ][ $key ];
 		}
 
 	} else {
 		return;
 	}
 
-
-
-	return $metadata;
+	return $metadata[ $post_id ];
 }
 
+/**
+ * Format the video runtime by converting it into a string.
+ *
+ * @since 1.0.0
+ *
+ * @param array $runtime Runtime elements
+ *
+ * @return string
+ */
 function format_video_runtime( array $runtime ) {
-	$formatted_runtime = sprintf('%02d:%02d',
+	$formatted_runtime = sprintf( '%02d:%02d',
 		$runtime['minutes'],
 		$runtime['seconds']
 	);
 
 	if ( (int) $runtime['hours'] > 0 ) {
-		$formatted_runtime = sprintf('%02d:%s',
+		$formatted_runtime = sprintf( '%02d:%s',
 			$runtime['hours'],
 			$formatted_runtime
 		);
@@ -147,7 +154,8 @@ add_filter( 'genesis_post_meta', __NAMESPACE__ . '\modify_post_meta' );
  * @return string
  */
 function modify_post_meta( $meta ) {
-	return sprintf( '[post_terms sep=", " before="%s " taxonomy="labs_technologies"]', __( 'Technologies:', 'asktonya') );
+	return sprintf( '[post_terms sep=", " before="%s " taxonomy="labs_technologies"]',
+		__( 'Technologies:', 'asktonya' ) );
 }
 
 genesis();
