@@ -15,7 +15,7 @@ namespace Fulcrum\Asset\Config;
 return array(
 	'file'                 => '',
 	'deps'                 => array(),
-	'version'              => '',
+	'version'              => null,
 	'in_footer'            => true,
 	'pre_conditional_load' => false,
 	'load_on_page'        => array(),

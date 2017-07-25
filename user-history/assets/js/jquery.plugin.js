@@ -11,6 +11,7 @@
 	'use strict'
 
 	var init = function() {
+
 		$('.embed-video__activity').on( 'click', clickHandler );
 	}
 
@@ -41,13 +42,14 @@
 			activity_state: state
 		}
 
+		console.log(data);
+
 		return data;
 	}
 
 	function ajaxHandler( data, $element ) {
 
 		$.post( uhParameters.ajaxurl, data, function( response ) {
-			console.log( response );
 			var recordID = parseInt(response);
 			if ( recordID < 1 ) {
 				return false;
@@ -59,7 +61,7 @@
 			updateActivityState( $element, data.activity_state );
 		})
 		 .fail(function(){
-//			console.log( 'failed' );
+			console.log( 'failed' );
 		 })
          .always(function(){
 

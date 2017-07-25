@@ -8,11 +8,11 @@
  * where you want to show a section and then hide away the content.  Clicking on the element will reveal the
  * hidden content (when it is hidden) or hide it (when showing).
  *
- * @package     UpTechLabs
- * @since       1.0.0
+ * @package     KnowTheCode\FulcrumQA
+ * @since       2.0.0
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
 ;(function ($, window, document, undefined) {
 

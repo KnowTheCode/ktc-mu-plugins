@@ -71,10 +71,13 @@ class ViewBuilder {
 		$this->controller = $controller;
 		$this->nonce      = wp_create_nonce( 'ktc_user_history' );
 
+		add_action('genesis_after', function(){
+			echo '<div style="display:none;">here</div>';
+		});
+
 		add_filter( 'ktc_embed_video_footer', array( $this, 'render_video_footer' ), 10, 3 );
 		add_action( 'render_episode_buttons', array( $this, 'render_video_footer' ), 10, 4 );
 	}
-
 
 	/**
 	 * Render the video footer.

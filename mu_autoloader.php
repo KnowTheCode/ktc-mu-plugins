@@ -12,7 +12,7 @@
  * Plugin URI:      https://KnowTheCode.io
  * Description:     Loads all Must Use Plugins including Fulcrum, Fulcrum Site, Library, User History, Quips
  *
- * Version:         1.0.2
+ * Version:         2.0.0
  * Author:          hellofromTonya
  * Author URI:      http://KnowTheCode.io
  * Text Domain:     ktc
@@ -48,4 +48,37 @@ foreach ( $fulcrum_plugins as $function_name => $boostrap_filename ) {
 
 include_once( 'memberpress/bootstrap.php' );
 
+include_once( 'better-asset-versioning/bootstrap.php' );
+
 do_action( 'fulcrum_all_must_use_plugins_loaded', $fulcrum );
+
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
+/**
+ * Enqueue the scripts
+ *
+ * @since 1.0.0
+ */
+function enqueue_assets() {
+	$handle = 'ktc_scripts';
+
+	wp_enqueue_script(
+		$handle,
+		plugin_dir_url( __FILE__ ) . 'assets/2.0.0/jquery.ktc.min.js',
+		array( 'jquery' ),
+		null,
+		true
+	);
+
+	$params = array(
+		'qa' => array(
+			'iconEl'        => '.qa--icon',
+			'iconClassname' => array(
+				'open'  => 'fa-chevron-down',
+				'close' => 'fa-chevron-up',
+			),
+		),
+	);
+
+	wp_localize_script( $handle, 'ktcScriptParameters', $params );
+}
+

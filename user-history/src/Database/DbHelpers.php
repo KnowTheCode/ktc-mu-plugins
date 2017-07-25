@@ -230,6 +230,40 @@ class DbHelpers implements DbHelpersContract {
 	 *
 	 * @since 1.0.0
 	 *
+	 * @param int $record_id
+	 *
+	 * @return array|null|object
+	 */
+	public function get_record_by_record_id( $record_id ) {
+		$cache_key = 'uh_record_id_' .$record_id;
+
+		$record = wp_cache_get( $cache_key, $this->config->cache_group );
+		if ( $record ) {
+			return $record;
+		}
+		global $wpdb;
+
+		$sql_query = $wpdb->prepare(
+			"
+				SELECT *
+				FROM {$this->db_tablename}
+				WHERE id = %d
+			", $record_id
+		);
+		$record    = $wpdb->get_results( $sql_query );
+
+		if ( $record ) {
+			wp_cache_set( $cache_key, $record, $this->config->cache_group );
+		}
+
+		return $record;
+	}
+
+	/**
+	 * Get the history record.
+	 *
+	 * @since 1.0.0
+	 *
 	 * @param int $user_id
 	 * @param int $post_id
 	 * @param string $video_id

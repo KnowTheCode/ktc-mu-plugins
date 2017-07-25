@@ -92,12 +92,33 @@ class Controller extends Addon {
 	protected function init_events() {
 		parent::init_events();
 
-		$this->ajax_handler = $this->fulcrum['ajax.user_history'];
-		add_action( 'after_setup_theme', array( $this, 'init_objects' ) );
-		add_action( 'loop_start', array( $this, 'set_last_viewed_for_user' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 
-		// TODO-TEMPORARY_MIGRATION
-		//$this->init_migration();
+		$this->ajax_handler = $this->fulcrum['ajax.user_history'];
+		add_action( 'init', array( $this, 'init_objects' ) );
+		add_action( 'loop_start', array( $this, 'set_last_viewed_for_user' ) );
+	}
+
+	public function enqueue_assets() {
+		if ( is_home() || is_front_page() ) {
+			return;
+		}
+
+		$handle     = 'ktc_user_history_js';
+		wp_enqueue_script(
+			$handle,
+			USER_HISTORY_PLUGIN_URL . 'assets/dist/2.0.0/jquery.user-history.min.js',
+			array( 'jquery' ),
+			null,
+			true
+		);
+
+		wp_localize_script( $handle, 'uhParameters',
+			array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'action'  => 'user_history_activity',
+			)
+		);
 	}
 
 	/**
@@ -130,9 +151,11 @@ class Controller extends Addon {
 			return;
 		}
 
-		$post = get_post();
+		$post             = get_post();
 		$valid_page_types = array(
-			'post', 'lab', 'docx'
+			'post',
+			'lab',
+			'docx',
 		);
 
 		if ( ! in_array( $post->post_type, $valid_page_types ) ) {
@@ -160,11 +183,12 @@ class Controller extends Addon {
 	 * @return false|int
 	 */
 	public function save( array $data_packet ) {
-		$data_packet['id'] = $this->db_helpers->get_record_id(
-			$data_packet['post_id'],
-			$data_packet['video_id'],
-			$data_packet['activity_id']
-		);
+		// BUG FIX 24.July.2017
+//		$data_packet['id'] = $this->db_helpers->get_record_id(
+//			$data_packet['post_id'],
+//			$data_packet['video_id'],
+//			$data_packet['activity_id']
+//		);
 
 		if ( $data_packet['id'] < 1 ) {
 			return $this->db_helpers->insert_activity( $data_packet );
@@ -284,47 +308,5 @@ class Controller extends Addon {
 			$this->db_helpers->get_current_page(),
 			$this->config->per_page
 		);
-	}
-
-	/************************************************************
-	 * TODO-TEMPORARY_MIGRATION
-	 *
-	 * The following code is temporary for mapping user history
-	 * over to single episode structure.  When a lab is converted
-	 * into a parent/episodes structure, the playlist is built.
-	 * That triggers the remap event.  The following code will
-	 * change each user's activity.  Specifically, we are changing
-	 * the lab's ID (which is now the parent) into the episode's ID.
-	 ***********************************************************/
-
-
-	protected function init_migration() {
-		if ( ! is_admin() ) {
-			return;
-		}
-		add_action( 'episode_user_history_remap', array( $this, 'remap_activity_for_episode' ), 10, 3 );
-	}
-
-	/**
-	 * Remap the user history activity for the given episode.
-	 *
-	 * @since 1.1.2
-	 *
-	 * @param int $parent_id
-	 * @param int $episode_id
-	 * @param string $video_id
-	 *
-	 * @return void
-	 */
-	public function remap_activity_for_episode( $parent_id, $episode_id, $video_id ) {
-		global $wpdb;
-
-		$sql_query = $wpdb->prepare(
-			"UPDATE user_history AS uh
-			SET post_id = %d
-			WHERE post_id = %d AND video_id = %s
-			", (int) $episode_id, (int) $parent_id, strip_tags( $video_id ) );
-
-		$wpdb->query( $sql_query );
 	}
 }

@@ -55,14 +55,14 @@ return array(
 		/****************************
 		 * Assets
 		 ****************************/
-		'script.fitvids'      => array(
-			'provider' => 'provider.asset',
-			'config'   => LIBRARY_PLUGIN_DIR . 'config/asset/fitvids.php',
-		),
-		'script.library'      => array(
-			'provider' => 'provider.asset',
-			'config'   => LIBRARY_PLUGIN_DIR . 'config/asset/script.php',
-		),
+//		'script.fitvids'      => array(
+//			'provider' => 'provider.asset',
+//			'config'   => LIBRARY_PLUGIN_DIR . 'config/asset/fitvids.php',
+//		),
+//		'script.library'      => array(
+//			'provider' => 'provider.asset',
+//			'config'   => LIBRARY_PLUGIN_DIR . 'config/asset/script.php',
+//		),
 
 		/****************************
 		 * Post Types

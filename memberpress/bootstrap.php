@@ -20,9 +20,10 @@ add_action( 'init', __NAMESPACE__ .'\add_genesis_layouts_to_post_type_supports',
  */
 function add_genesis_layouts_to_post_type_supports() {
 	add_post_type_support( 'memberpressproduct', 'genesis-layouts' );
+	remove_post_type_support('memberpressproduct', 'comments' );
 }
 
-add_filter( 'mepr-grace-expire-days', __NAMESPACE__ . '\add_expiration_grace_period' );
+//add_filter( 'mepr-grace-expire-days', __NAMESPACE__ . '\add_expiration_grace_period' );
 /**
  * Add a grace period to the end of the subscription period to ensure
  * payments get processed on time.

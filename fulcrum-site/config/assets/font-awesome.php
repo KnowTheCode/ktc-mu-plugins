@@ -17,6 +17,6 @@ return array(
 	'config'    => array(
 		'file'    => '//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css',
 		'deps'    => array(),
-		'version' => '4.6.2',
+		'version' => null,
 	),
 );

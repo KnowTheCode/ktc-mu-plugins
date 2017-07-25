@@ -142,11 +142,12 @@ abstract class Asset implements Asset_Contract {
 			$message = __( 'A unique ID is required for the asset.', 'fulcrum' );
 
 		} elseif ( ! $this->config->file ) {
-			$message = sprintf( '%s [%s]', __( 'This asset requires a fully qualified file path and name', 'fulcrum' ), $this->handle );
-
-		} elseif ( ! $this->config->version ) {
-			$message = sprintf( '%s [%s]', __( 'This asset requires a version', 'fulcrum' ), $this->handle );
+			$message = sprintf( '%s [%s]', __( 'This asset requires a fully qualified file path and name', 'fulcrum' ),
+				$this->handle );
 		}
+//		elseif ( ! $this->config->version ) {
+//			$message = sprintf( '%s [%s]', __( 'This asset requires a version', 'fulcrum' ), $this->handle );
+//		}
 
 		if ( $message ) {
 			throw new InvalidArgumentException( $message );

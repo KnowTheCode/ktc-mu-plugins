@@ -26,10 +26,10 @@ return array(
 
 	'service_providers' => array(
 
-		'script.user_history'    => array(
-			'provider' => 'provider.asset',
-			'config'   => USER_HISTORY_PLUGIN_DIR . 'config/asset/script.php',
-		),
+//		'script.user_history'    => array(
+//			'provider' => 'provider.asset',
+//			'config'   => USER_HISTORY_PLUGIN_DIR . 'config/asset/script.php',
+//		),
 
 		/****************************
 		 * Shortcodes

@@ -19,7 +19,7 @@ return array(
 	'config'    => array(
 		'file'                 => FULCRUM_SITE_PLUGIN_URL . 'assets/build/jquery.plugin.min.js',
 		'deps'                 => array( 'jquery' ),
-		'version'              => Plugin::VERSION,
+		'version'              => null,
 		'in_footer'            => true,
 		'localize'  => array(
 			'params'      => array(

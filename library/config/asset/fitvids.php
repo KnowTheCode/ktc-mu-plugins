@@ -15,9 +15,9 @@ return array(
 	'is_script' => true,
 	'handle'    => 'fitvids_js',
 	'config'    => array(
-		'file'      => LIBRARY_PLUGIN_URL . 'assets/vendor/jquery.fitvids/jquery.fitvids.js',
+		'file'      => LIBRARY_PLUGIN_URL . 'assets/vendor/jquery.fitvids/1.1/jquery.fitvids.js',
 		'deps'      => array( 'jquery', ),
-		'version'   => '1.1',
+		'version'   => null,
 		'in_footer' => true,
 	),
 );
