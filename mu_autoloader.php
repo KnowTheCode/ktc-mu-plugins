@@ -63,7 +63,7 @@ function enqueue_assets() {
 
 	wp_enqueue_script(
 		$handle,
-		plugin_dir_url( __FILE__ ) . 'assets/2.0.0/jquery.ktc.min.js',
+		plugin_dir_url( __FILE__ ) . 'assets/2.0.1/jquery.ktc.min.js',
 		array( 'jquery' ),
 		null,
 		true
