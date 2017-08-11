@@ -3,10 +3,10 @@
  * Library Helpers
  *
  * @package     Library\Support
- * @since       1.1.2
+ * @since       1.1.6
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
 
 if ( ! function_exists( 'get_technology_from_the_query' ) ) {
@@ -168,7 +168,7 @@ if ( ! function_exists( 'get_content_font_icon' ) ) {
 	/**
 	 * Get the content font icon for the given (or current) post type.
 	 *
-	 * @since 1.1.2
+	 * @since 1.1.3
 	 *
 	 * @param string $post_type
 	 *
@@ -187,6 +187,10 @@ if ( ! function_exists( 'get_content_font_icon' ) ) {
 			return 'university';
 		}
 
+		if ( $post_type == 'asktonya' ) {
+			return 'microphone';
+		}
+
 		return 'map-signs';
 
 	}
@@ -196,7 +200,7 @@ if ( ! function_exists( 'get_whats_new_query' ) ) {
 	/**
 	 * Fetch the What's New Query
 	 *
-	 * @since 1.1.5
+	 * @since 1.1.6
 	 *
 	 * @param string $filterby Filter the query by All, Labs, Insights, Docx
 	 * @param array $args Override default arguments
@@ -211,7 +215,7 @@ if ( ! function_exists( 'get_whats_new_query' ) ) {
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 			'date_query'     => array(
-				'after' => '-4 month',
+				'after' => '-8 month',
 			),
 			'meta_query'     => array(
 				'relation' => 'OR',
@@ -233,8 +237,10 @@ if ( ! function_exists( 'get_whats_new_query' ) ) {
 			$args['post_type'] = 'docx';
 		} elseif ( $filterby == 'insights' ) {
 			$args['post_type'] = 'post';
+		} elseif ( $filterby == 'asktonya' ) {
+			$args['post_type'] = 'asktonya';
 		} else {
-			$args['post_type'] = array( 'post', 'lab', 'docx' );
+			$args['post_type'] = array( 'post', 'lab', 'docx', 'asktonya' );
 		}
 
 		return new WP_Query( $args );
