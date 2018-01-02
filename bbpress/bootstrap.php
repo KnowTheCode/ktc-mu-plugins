@@ -45,12 +45,13 @@ if ( ! defined( 'BBPRESS_LATE_LOAD' ) ) {
 	define( 'BBPRESS_LATE_LOAD', true );
 }
 
-add_action( 'plugins_loaded', __NAMESPACE__ . '\do_not_load_bbpress', -99 );
+add_action( 'plugins_loaded', __NAMESPACE__ . '\do_not_load_bbpress', - 99 );
 /**
  * When on the front-end and the requested URI is not a forums
  * page, then do not load bbPress.  We are doing this to speed up the website.
  *
  * @since 1.0.0
+ * @since 1.1.0 Remove MemberPress nav action.
  *
  * @return void
  */
@@ -60,6 +61,7 @@ function do_not_load_bbpress() {
 	}
 
 	remove_action( 'plugins_loaded', 'bbpress', 1 );
+	remove_action( 'mepr_account_nav', 'MeprBbPressCtrl::mepr_account_page_links' );
 }
 
 /**

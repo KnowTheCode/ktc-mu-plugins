@@ -23,7 +23,6 @@ function render_partner_footer() {
 		return;
 	}
 
-
 	$images = include( PARTNERS_PLUGIN_DIR . 'config/structure/footer.php' );
 	
 	include( 'views/partners-footer.php' );

@@ -48,7 +48,7 @@ foreach ( $fulcrum_plugins as $function_name => $boostrap_filename ) {
 
 include_once( 'memberpress/bootstrap.php' );
 
-include_once( 'better-asset-versioning/bootstrap.php' );
+//include_once( 'better-asset-versioning/bootstrap.php' );
 
 do_action( 'fulcrum_all_must_use_plugins_loaded', $fulcrum );
 

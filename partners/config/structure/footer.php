@@ -11,8 +11,7 @@
 namespace Partners\Structure;
 
 return array(
-	'serverpress' => PARTNERS_PLUGIN_URL . 'assets/images/serverpress/serverpress-175x175.png',
-	'siteground'  => PARTNERS_PLUGIN_URL . 'assets/images/siteground/siteground-175x175.png',
-	'studiopress' => PARTNERS_PLUGIN_URL . 'assets/images/studiopress/sp-banner-175x175.png',
 	'wpninjas'    => PARTNERS_PLUGIN_URL . 'assets/images/wpninjas/ninja-forms-175x175.png',
+	'wpengine'    => PARTNERS_PLUGIN_URL . 'assets/images/wpengine/wpengine-175x175.png',
+	'siteground'  => PARTNERS_PLUGIN_URL . 'assets/images/siteground/siteground-175x175.png',
 );

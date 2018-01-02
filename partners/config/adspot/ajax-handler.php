@@ -18,8 +18,7 @@ return array(
 	'options_next_key'          => 'partner_adspot_next',
 	'partners'                  => array(
 		'wpninjas',
+		'wpengine',
 		'siteground',
-//		'serverpress',
-		'studiopress',
 	),
 );
