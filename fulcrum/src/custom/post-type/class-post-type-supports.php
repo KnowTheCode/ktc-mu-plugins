@@ -95,7 +95,7 @@ class Post_Type_Supports {
 	 ***************************************************/
 
 	/**
-	 * Build the supports fromthe configuration.  The starting defaults are from the 'post' supports.
+	 * Build the supports from the configuration.  The starting defaults are from the 'post' supports.
 	 *
 	 * @since 1.0.0
 	 *

@@ -35,11 +35,11 @@ return array(
 			'provider' => 'provider.asset',
 			'config'   => FULCRUM_SITE_PLUGIN_DIR . 'config/assets/font-awesome.php',
 		),
-//		// This is the minified live site scripts
-//		'script.fulcrum_site'   => array(
-//			'provider' => 'provider.asset',
-//			'config'   => FULCRUM_SITE_PLUGIN_DIR . 'config/assets/plugin-build.php',
-//		),
+
+		'script.fulcrum_site'   => array(
+			'provider' => 'provider.asset',
+			'config'   => FULCRUM_SITE_PLUGIN_DIR . 'config/assets/plugin-build.php',
+		),
 
 		/****************************
 		 * Shortcodes

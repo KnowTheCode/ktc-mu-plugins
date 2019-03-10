@@ -55,9 +55,10 @@ class UserHistory extends UserHistoryBase {
 		ob_start();
 
 		if ( $this->atts['show_filterby'] ) {
-			include( $this->config->filterby_view );
+			include $this->config->filterby_view;
 		}
-		include( $this->config->view );
+
+		include $this->config->view;
 
 		$html = ob_get_clean();
 
@@ -77,13 +78,13 @@ class UserHistory extends UserHistoryBase {
 	 */
 	protected function render_history_rows() {
 
-		foreach ( $this->records as $record ) {
+		foreach ( (array) $this->records as $record ) {
 			$post_id   = (int) $record->post_id;
 			$post      = get_post( $post_id );
 			$font_icon = get_content_font_icon( $post->post_type );
 			$permalink = get_permalink( $post_id );
 
-			include( $this->config->row_view );
+			include $this->config->row_view;
 		}
 	}
 
@@ -103,8 +104,11 @@ class UserHistory extends UserHistoryBase {
 
 		$activity_id = $this->get_activity_id();
 
-		$this->records = $this->controller->get_records_by_activity( $activity_id, get_current_user_id(),
-			(int) $this->atts['per_page'] );
+		$this->records = $this->controller->get_records_by_activity(
+			$activity_id,
+			get_current_user_id(),
+			(int) $this->atts['per_page']
+		);
 	}
 
 	/**

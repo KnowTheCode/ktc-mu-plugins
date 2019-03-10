@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KTC MU Plugins Loader
  *
@@ -19,15 +20,12 @@
  * Requires WP:     4.5
  * Requires PHP:    5.4
  */
-
 namespace KnowTheCode;
 
-include( 'fulcrum/bootstrap.php' );
-
+include_once 'fulcrum/bootstrap.php';
 $fulcrum = \Fulcrum\launch();
 
-include( 'bbpress/bootstrap.php' );
-
+include_once 'bbpress/bootstrap.php';
 
 $fulcrum_plugins = array(
 	'\UpTechLabs\FulcrumSite\launch'      => 'fulcrum-site/bootstrap.php',
@@ -35,7 +33,7 @@ $fulcrum_plugins = array(
 	'\Library\launch'                     => 'library/bootstrap.php',
 	'\KnowTheCode\AskTonyaPodcast\launch' => 'ask-tonya-podcast/bootstrap.php',
 	'\KnowTheCode\UserHistory\launch'     => 'user-history/bootstrap.php',
-	'\Partners\launch'                    => 'partners/bootstrap.php',
+//	'\Partners\launch'                    => 'partners/bootstrap.php',
 	'\Quips\launch'                       => 'quips/bootstrap.php',
 	'\UpTechLabs\HelpCenter\launch'       => 'help-center/bootstrap.php',
 	'\KnowTheCode\Marketing\launch'       => 'marketing/bootstrap.php',
@@ -46,13 +44,13 @@ foreach ( $fulcrum_plugins as $function_name => $boostrap_filename ) {
 	$function_name( $fulcrum );
 }
 
-include_once( 'memberpress/bootstrap.php' );
+include_once 'memberpress/bootstrap.php';
 
 //include_once( 'better-asset-versioning/bootstrap.php' );
 
 do_action( 'fulcrum_all_must_use_plugins_loaded', $fulcrum );
 
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
+//add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 /**
  * Enqueue the scripts
  *
@@ -63,7 +61,7 @@ function enqueue_assets() {
 
 	wp_enqueue_script(
 		$handle,
-		plugin_dir_url( __FILE__ ) . 'assets/2.0.1/jquery.ktc.min.js',
+		plugin_dir_url( __FILE__ ) . 'assets/2.0.2/jquery.ktc.min.js',
 		array( 'jquery' ),
 		null,
 		true
@@ -82,3 +80,7 @@ function enqueue_assets() {
 	wp_localize_script( $handle, 'ktcScriptParameters', $params );
 }
 
+/**
+ * Disable the adspot shortcode.
+ */
+add_shortcode( 'adspot', '__return_empty_string' );

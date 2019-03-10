@@ -31,7 +31,7 @@ return array(
 			'orderby'       => 'slug',
 			'order'         => 'ASC',
 			'per_page'      => 50,
-			'none_found'    => __( 'Hum, we didn\'t find any for you.', 'user_history' ),
+			'none_found'    => __( 'Hmm, we didn\'t find any for you.', 'user_history' ),
 			'paged'         => 1,
 			'show_filterby' => 1,
 		),
