@@ -21,6 +21,7 @@ $fulcrum_plugins = array(
 	'\UpTechLabs\FulcrumSite\launch'      => 'fulcrum-site/bootstrap.php',
 	'\KnowTheCode\Docx\launch'            => 'docx/bootstrap.php',
 	'\Library\launch'                     => 'library/bootstrap.php',
+	'\KnowTheCode\Playbooks\launch'                   => 'playbooks/bootstrap.php',
 	'\KnowTheCode\AskTonyaPodcast\launch' => 'ask-tonya-podcast/bootstrap.php',
 	'\KnowTheCode\UserHistory\launch'     => 'user-history/bootstrap.php',
 //	'\Partners\launch'                    => 'partners/bootstrap.php',

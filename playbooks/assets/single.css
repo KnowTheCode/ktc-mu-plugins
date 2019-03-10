@@ -1,0 +1,45 @@
+.playbook-intro {
+    color: #fff;
+    font-size: 18px;
+}
+
+.nav-scrollspy {
+    margin-bottom: 40px;
+}
+
+.nav-scrollspy ul {
+    list-style: none;
+}
+
+.nav-scrollspy ul li a {
+    border-bottom: none;
+    color: #fff;
+    background-color: #627f00;
+    padding: 5px 10px;
+}
+
+.nav-scrollspy ul li a.active {
+    background-color: #fff;
+    color: #1b202d;
+}
+
+@media screen and (max-width: 899px) {
+    .nav-scrollspy ul li {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .nav-scrollspy {
+        width: 130px;
+        position: absolute;
+        top: 0;
+    }
+    .nav-scrollspy ul li a {
+        display: block;
+    }
+    .playbook-container .entry-content {
+        max-width: calc(100% - 150px);
+        margin-left: 150px;
+    }
+}

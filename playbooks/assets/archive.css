@@ -1,0 +1,9 @@
+@media screen and (min-width: 900px) {
+    body.playbooks .content {
+        display: flex;
+    }
+
+    body.playbooks .entry.playbooks {
+        width: 50%;
+    }
+}

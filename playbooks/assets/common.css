@@ -1,0 +1,53 @@
+.playbook-header {
+    background-color: #627f00;
+    width: 100%;
+    padding: 50px 0;
+    margin: 0 auto 60px;
+    position: relative;
+}
+
+.playbook-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playbook-header-content {
+    width: calc(100% - 145px);
+}
+
+.playbook-icon {
+    width: 125px;
+    fill: #fff;
+    margin-right: 20px;
+}
+
+.playbook-icon-background .playbook-icon {
+    display: none;
+}
+
+.playbook-header h1,
+.playbook-header h2,
+.playbook-header p {
+    color: #fff;
+}
+
+.playbook-header p {
+    font-size: 20px;
+}
+
+@media screen and (min-width: 900px) {
+    .playbook-icon-background .playbook-icon {
+        display: block;
+        position: absolute;
+        top: -50px;
+        right: 20px;
+        width: 250px;
+        fill: rgba(145,165,76, 0.6);
+        transform: skewY(25deg);
+    }
+
+    .playbook-container {
+        position: relative;
+    }
+}
