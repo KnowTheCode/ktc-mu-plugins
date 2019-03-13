@@ -22,7 +22,7 @@ return [
 			'description'       => 'Skills',
 			'hierarchical'      => true,
 			'show_admin_column' => true,
-			'show_in_rest'      => true,
+			'show_in_rest'      => true, // Needed for tax to appear in Gutenberg editor.
 		],
 	],
 ];

@@ -17,203 +17,189 @@ use Library\Episodes\Controller;
 use Library\Episodes\Playlist\Playlist;
 use Library\Episodes\PlaylistBackend;
 
-return array(
+return [
 
 	/****************************
 	 * Initial Setup
 	 ****************************/
 
-	'initial_parameters' => array(
+	'initial_parameters' => [
 		'episodes_options.metadata.config' => new Config( LIBRARY_PLUGIN_DIR . 'config/episodes/metadata-episode-options.php' ),
 		'library_options.metadata.config'  => new Config( LIBRARY_PLUGIN_DIR . 'config/episodes/metadata-library-options.php' ),
-	),
+	],
 
 	/****************************
 	 * Post Types / Rewrite
 	 ****************************/
-	'post_types'         => array(//		'docx' => 'docx',
-	),
+	'post_types'         => [],
 
-	'posts_per_page' => array(
-		'glossary'  => - 1,
-		'lab'       => 10,
-	),
+	'posts_per_page' => [
+		'glossary' => - 1,
+		'lab'      => 10,
+	],
 
-	'plugin_activation_keys' => array(
+	'plugin_activation_keys' => [
 		'labs.post_type',
 		'glossary.post_type',
 		'skills.taxonomy',
 		'catalog.taxonomy',
-	),
+	],
 
 	/****************************
 	 * Service Providers
 	 ****************************/
 
-	'service_providers' => array(
-
-		/****************************
-		 * Assets
-		 ****************************/
-//		'script.fitvids'      => array(
-//			'provider' => 'provider.asset',
-//			'config'   => LIBRARY_PLUGIN_DIR . 'config/asset/fitvids.php',
-//		),
-//		'script.library'      => array(
-//			'provider' => 'provider.asset',
-//			'config'   => LIBRARY_PLUGIN_DIR . 'config/asset/script.php',
-//		),
-
+	'service_providers' => [
 		/****************************
 		 * Post Types
 		 ****************************/
-		'labs.post_type'      => array(
+		'labs.post_type'     => [
 			'provider' => 'provider.post_type',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/post-type/lab.php',
-		),
-		'glossary.post_type'  => array(
+		],
+		'glossary.post_type' => [
 			'provider' => 'provider.post_type',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/post-type/glossary.php',
-		),
+		],
 
 		/****************************
 		 * Taxonomy
 		 ****************************/
 
-		'skills.taxonomy'            => array(
+		'skills.taxonomy'            => [
 			'provider' => 'provider.taxonomy',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/taxonomy/skills.php',
-		),
-		'catalog.taxonomy'           => array(
+		],
+		'catalog.taxonomy'           => [
 			'provider' => 'provider.taxonomy',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/taxonomy/catalog.php',
-		),
+		],
 
 		/****************************
 		 * Shortcodes
 		 ****************************/
-		'shortcode.latest_content'   => array(
+		'shortcode.latest_content'   => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/latest.php',
-		),
-		'shortcode.vimeo'            => array(
+		],
+		'shortcode.vimeo'            => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/vimeo.php',
-		),
-		'shortcode.episode_playlist' => array(
+		],
+		'shortcode.episode_playlist' => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/episode-playlist.php',
-		),
-		'shortcode.content_adder'    => array(
+		],
+		'shortcode.content_adder'    => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/content-adder.php',
-		),
-		'shortcode.insight'          => array(
+		],
+		'shortcode.insight'          => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/insight.php',
-		),
-		'shortcode.whatsnew'         => array(
+		],
+		'shortcode.whatsnew'         => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/whatsnew.php',
-		),
-		'shortcode.donext'           => array(
+		],
+		'shortcode.donext'           => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/donext.php',
-		),
-		'shortcode.embedpost'        => array(
+		],
+		'shortcode.embedpost'        => [
 			'provider' => 'provider.shortcode',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/shortcode/embedpost.php',
-		),
+		],
 
 		/****************************
 		 * Template
 		 ****************************/
-		'template.labs'              => array(
+		'template.labs'              => [
 			'provider' => 'provider.template',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/template/labs-template.php',
-		),
-		'template.glossary'          => array(
+		],
+		'template.glossary'          => [
 			'provider' => 'provider.template',
 			'config'   => LIBRARY_PLUGIN_DIR . 'config/template/glossary-template.php',
-		),
-	),
+		],
+	],
 
-	'register_concretes' => array(
-		'options.labs' => array(
+	'register_concretes' => [
+		'options.labs' => [
 			'autoload' => false,
-			'concrete' => function ( $container ) {
+			'concrete' => function( $container ) {
 				return new Library_Options(
 					new Config( LIBRARY_PLUGIN_DIR . 'config/admin/settings/options.php' )
 				);
 			},
-		),
+		],
 
-		'options.metabox.episodes' => array(
+		'options.metabox.episodes' => [
 			'autoload' => false,
-			'concrete' => function ( $container ) {
+			'concrete' => function( $container ) {
 				return new \Fulcrum\Metadata\Metabox(
 					new Config( LIBRARY_PLUGIN_DIR . 'config/episodes/metabox-episode-options.php' )
 				);
 			},
-		),
+		],
 
-		'options.metabox.library' => array(
+		'options.metabox.library' => [
 			'autoload' => false,
-			'concrete' => function ( $container ) {
+			'concrete' => function( $container ) {
 				return new Episodes\Metabox\LibraryOptions(
 					new Config( LIBRARY_PLUGIN_DIR . 'config/episodes/metabox-library-options.php' )
 				);
 			},
-		),
+		],
 
-		'library_options.metadata' => array(
+		'library_options.metadata' => [
 			'autoload' => false,
-			'concrete' => function ( $fulcrum ) {
+			'concrete' => function( $fulcrum ) {
 				return new Episodes\Metadata(
 					$fulcrum['library_options.metadata.config']
 				);
 			},
-		),
+		],
 
-		'playlist.episodes' => array(
+		'playlist.episodes' => [
 			'autoload' => false,
-			'concrete' => function ( $fulcrum ) {
+			'concrete' => function( $fulcrum ) {
 				return new Playlist(
 					new Config( LIBRARY_PLUGIN_DIR . 'config/episodes/playlist.php' )
 				);
 			},
-		),
+		],
 
-		'controller.episodes'    => array(
+		'controller.episodes'    => [
 			'autoload' => true,
-			'concrete' => function ( $fulcrum ) {
+			'concrete' => function( $fulcrum ) {
 				return new Controller(
 					$fulcrum,
 					new Config( LIBRARY_PLUGIN_DIR . 'config/episodes/controller.php' )
 				);
 			},
-		),
+		],
 
 		/*********
 		 * Series
 		 ********/
-		'options.metabox.series' => array(
+		'options.metabox.series' => [
 			'autoload' => false,
-			'concrete' => function ( $container ) {
+			'concrete' => function( $container ) {
 				return new Series\Metabox\SeriesOptions(
 					new Config( LIBRARY_PLUGIN_DIR . 'config/series/metabox-series-options.php' )
 				);
 			},
-		),
-		'controller.series'      => array(
+		],
+		'controller.series'      => [
 			'autoload' => true,
-			'concrete' => function ( $fulcrum ) {
+			'concrete' => function( $fulcrum ) {
 				return new Series\Controller(
 					$fulcrum,
 					new Config( LIBRARY_PLUGIN_DIR . 'config/series/controller.php' )
 				);
 			},
-		),
-	),
-);
+		],
+	],
+];
 
