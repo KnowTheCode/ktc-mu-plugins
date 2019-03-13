@@ -5,56 +5,64 @@
  * @package     Library
  * @since       1.0.0
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
+ * @link        https://KnowTheCode.io
  * @license     GNU General Public License 2.0+
  */
 
 namespace Library;
 
-return array(
+return [
 	'autoload'       => true,
 	'post_type_name' => 'lab',
-	'config'         => array(
+	'config'         => [
 		'plural_name'           => 'Labs',
 		'singular_name'         => 'Lab',
-		'args'                  => array(
+		'args'                  => [
 			'public'       => true,
 			'hierarchical' => true,
 			'has_archive'  => true,
 			'show_in_rest' => true,
 			'menu_icon'    => 'dashicons-video-alt',
-			'taxonomies'   => array( 'catalog', 'skills' ),
-			'rewrite'      => array(
+			'taxonomies'   => [ 'catalog', 'skills' ],
+			'rewrite'      => [
 				'slug'       => 'labs',
 				'with_front' => false,
-			),
+			],
 			'description'  => 'Labs - Hands-on code building projects',
-		),
-		'labels'                => array(
+		],
+		'labels'                => [
 			'archive' => 'Labs',
-		),
-		'additional_supports'   => array(
-			'author'          => false,
-			'comments'        => false,
-			'excerpt'         => true,
-			'post-formats'    => false,
-			'trackbacks'      => false,
-			'custom-fields'   => false,
-			'revisions'       => false,
-			'page-attributes' => true,
-			'ktc_library'     => true,
-		),
+		],
+		'additional_supports'   => [
+			'author'                            => false,
+			'comments'                          => false,
+			'editor'                            => true,
+			'excerpt'                           => true,
+			'post-formats'                      => false,
+			'trackbacks'                        => false,
+			'custom-fields'                     => false,
+			'revisions'                         => false,
+			'page-attributes'                   => true,
+			'ktc_library'                       => true,
+			// Disable the Genesis supports.
+			'genesis-entry-meta-before-content' => false,
+			'genesis-entry-meta-after-content'  => false,
+			'genesis-seo'                       => false,
+			'genesis-scripts'                   => false,
+			'genesis-layouts'                   => false,
+			'genesis-rel-author'                => false,
+		],
 		'rewrite_with_taxonomy' => false,
 
-		'columns_filter' => array(
-			'coming_soon' => __( 'Coming Soon', 'library' ),
-		),
-		'columns_data'   => array(
-			'coming_soon' => array(
+		'columns_filter' => [
+			'coming_soon' => 'Coming Soon',
+		],
+		'columns_data'   => [
+			'coming_soon' => [
 				'callback' => 'genesis_get_custom_field',
 				'echo'     => true,
-				'args'     => array( '_ktc_coming_soon' ),
-			),
-		),
-	),
-);
+				'args'     => [ '_ktc_coming_soon' ],
+			],
+		],
+	],
+];

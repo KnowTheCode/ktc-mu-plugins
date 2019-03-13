@@ -36,6 +36,7 @@ return [
 		'additional_supports'   => [
 			'author'                            => false,
 			'comments'                          => false,
+			'editor'                            => true,
 			'excerpt'                           => true,
 			'post-formats'                      => false,
 			'trackbacks'                        => false,

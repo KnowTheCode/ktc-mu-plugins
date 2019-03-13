@@ -5,19 +5,19 @@
  * @package     Library
  * @since       1.0.0
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
+ * @link        https://KnowTheCode.io
  * @license     GNU General Public License 2.0+
  */
 
 namespace Library;
 
-return array(
+return [
 	'autoload'       => true,
 	'post_type_name' => 'glossary',
-	'config'         => array(
+	'config'         => [
 		'plural_name'         => 'Glossary',
 		'singular_name'       => 'Glossary',
-		'args'                => array(
+		'args'                => [
 			'public'              => true,
 			'hierarchical'        => false,
 			'show_in_rest'        => true,
@@ -25,19 +25,27 @@ return array(
 			'exclude_from_search' => true,
 			'menu_icon'           => 'dashicons-book-alt',
 			'description'         => 'Glossary - key terms and concepts',
-		),
-		'labels'              => array(
+		],
+		'labels'              => [
 			'archive' => 'Glossary',
-		),
-		'additional_supports' => array(
-			'author'          => false,
-			'comments'        => false,
-			'excerpt'         => false,
-			'post-formats'    => false,
-			'trackbacks'      => false,
-			'page-attributes' => true,
-			'custom-fields'   => false,
-			'revisions'       => false,
-		),
-	),
-);
+		],
+		'additional_supports' => [
+			'author'                            => false,
+			'comments'                          => false,
+			'editor'                            => true,
+			'excerpt'                           => false,
+			'post-formats'                      => false,
+			'trackbacks'                        => false,
+			'page-attributes'                   => true,
+			'custom-fields'                     => false,
+			'revisions'                         => false,
+			// Disable the Genesis supports.
+			'genesis-entry-meta-before-content' => false,
+			'genesis-entry-meta-after-content'  => false,
+			'genesis-seo'                       => false,
+			'genesis-scripts'                   => false,
+			'genesis-layouts'                   => false,
+			'genesis-rel-author'                => false,
+		],
+	],
+];
