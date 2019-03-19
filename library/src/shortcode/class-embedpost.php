@@ -66,7 +66,7 @@ class EmbedPost extends Shortcode {
 
 		$view = $this->is_episode ? 'view_episode' : 'view';
 
-		include( $this->config->{$view} );
+		include $this->config->{$view};
 
 		return ob_get_clean();
 	}
@@ -79,13 +79,13 @@ class EmbedPost extends Shortcode {
 	 * @return string
 	 */
 	protected function render_multiple() {
-		$query = new WP_Query( array(
+		$query = new WP_Query( [
 			'post__in'       => $this->post_ids,
 			'post_type'      => 'any',
 			'orderby'        => 'post__in',
 			'posts_per_page' => - 1,
 			'nopaging'       => true,
-		) );
+		] );
 
 		if ( ! $query->have_posts() ) {
 			return '';
@@ -102,7 +102,7 @@ class EmbedPost extends Shortcode {
 
 			$view = $this->get_view_filename();
 
-			include( $this->config->{$view} );
+			include $this->config->{$view};
 		}
 
 		$html = ob_get_clean();
@@ -274,7 +274,6 @@ class EmbedPost extends Shortcode {
 	 * @return string
 	 */
 	protected function get_container_classes() {
-
 		$classes = sprintf( '%s-%d embedpost--article', esc_attr( $this->post_type ), $this->post_id );
 
 		if ( $this->atts['highlight'] ) {
