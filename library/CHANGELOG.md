@@ -1,3 +1,8 @@
+## 1.1.7
+
+- bug fix: changed the "membership" link to "go-pro"
+- removed "index.php" files.
+
 ## 1.1.6
 
 - bug fix: series pages - showing stats

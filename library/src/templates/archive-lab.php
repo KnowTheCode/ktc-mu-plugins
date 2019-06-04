@@ -2,12 +2,13 @@
 /**
  * Labs Archive page template.
  *
- * @package     Library\Template
+ * @package     Library\Template\Lab
  * @since       1.0.2
  * @author      hellofromTonya
  * @link        https://KnowTheCode.io
- * @license     GNU General Public License 2.0+
+ * @license     GPL-2.0+
  */
+
 namespace Library\Template\Lab;
 
 do_action( 'fulcrum_grid' );

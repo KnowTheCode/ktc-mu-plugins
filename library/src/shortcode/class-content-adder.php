@@ -1,13 +1,12 @@
 <?php
-
 /**
  * Content Adder Shortcode - It gives access to other plugins and features to hook in and add content.
  *
  * @package     Library\Shortcode
  * @since       1.0.0
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
 
 namespace Library\Shortcode;

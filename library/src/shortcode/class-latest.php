@@ -1,13 +1,12 @@
 <?php
-
 /**
  * Latest Shortcode - Provides a list of the latest articles based on the post type.
  *
  * @package     Library\Shortcode
  * @since       1.0.4
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
 
 namespace Library\Shortcode;

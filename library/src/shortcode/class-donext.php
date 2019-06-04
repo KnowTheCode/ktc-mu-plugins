@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Do Next Shortcode
  *
@@ -8,8 +7,8 @@
  * @package     Library\Shortcode
  * @since       1.1.5
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
 
 namespace Library\Shortcode;

@@ -5,15 +5,15 @@
  * @package         Library
  * @author          hellofromTonya
  * @license         GPL-2.0+
- * @link            https://UpTechLabs.io
+ * @link            https://KnowTheCode.io
  *
  * @wordpress-plugin
  * Plugin Name:     KTC Library Plugin
  * Plugin URI:      https://github.com/KnowTheCode/Library
  * Description:     Library - Powering up our Labs and Docx goodness. Library Plugin adds all the functionality we need for our video, lab, and docx libraries including the custom post types, shortcodes, taxonomies, scripts, and more.
- * Version:         1.1.6
+ * Version:         1.1.7
  * Author:          hellofromTonya
- * Author URI:      https://UpTechLabs.io
+ * Author URI:      https://KnowTheCode.io
  * Text Domain:     library
  * Requires WP:     4.5
  * Requires PHP:    5.6

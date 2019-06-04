@@ -1,12 +1,12 @@
 <?php
 /**
- * Description
+ * Series list handler.
  *
  * @package     Library\Structure
  * @since       1.0.0
- * @author      WPDC and hellofromTonya
- * @link        https://wpdevelopersclub.com/
- * @license     GNU General Public License 2.0+
+ * @author      hellofromTonya
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
 
 namespace Library\Structure;

@@ -6,11 +6,12 @@
  * @since       1.1.6
  * @author      hellofromTonya
  * @link        https://KnowTheCode.io
- * @license     GNU-2.0+
+ * @license     GPL-2.0+
  */
+
 namespace Library\Series\Metadata;
 
-$metadata = include( 'metadata-series-options.php' );
+$metadata = include 'metadata-series-options.php';
 
 return array(
 	'metadata_field' => 'ktc_series_options',
