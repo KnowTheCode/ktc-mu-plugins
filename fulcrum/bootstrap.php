@@ -62,7 +62,8 @@ function launch() {
 	);
 }
 
-add_filter( 'pre_update_option_rewrite_rules', __NAMESPACE__ . '\init_plugin_rewrites_and_flush', 1 );
+//add_filter( 'pre_update_option_rewrite_rules', __NAMESPACE__ . '\init_plugin_rewrites_and_flush', 1 );
+//add_filter( 'rewrite_rules_array', __NAMESPACE__ . '\init_plugin_rewrites_and_flush', PHP_INT_MAX );
 /**
  * If a flush_rewrite_rules is in process, we run our rewrite event
  * to ensure the rewrite rules and tasks are included.
@@ -80,7 +81,7 @@ add_filter( 'pre_update_option_rewrite_rules', __NAMESPACE__ . '\init_plugin_rew
  *
  * @return mixed
  */
-function init_plugin_rewrites_and_flush( $value) {
+function init_plugin_rewrites_and_flush( $value ) {
 	if ( ! $value ) {
 		do_action( 'fulcrum_init_rewrites' );
 	}

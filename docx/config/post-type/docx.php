@@ -19,12 +19,16 @@ return [
 		'singular_name'       => 'Docx',
 		'args'                => [
 			'public'       => true,
-			'hierarchical' => false,
+			'hierarchical' => true,
 			'show_in_rest' => true,
 			'has_archive'  => true,
 			'taxonomies'   => [ 'technologies', 'catalog', 'skills' ],
 			'menu_icon'    => 'dashicons-video-alt2',
 			'description'  => 'Docx - Supplemental Documentation that doesn\'t suck',
+			'rewrite'      => [
+				'slug'       => 'docx',
+				'with_front' => false,
+			],
 		],
 		'labels'              => [
 			'archive' => 'Docx',

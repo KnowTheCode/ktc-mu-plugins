@@ -618,7 +618,7 @@ class Post_Type implements Post_Type_Contract {
 			'search_items'       => sprintf( '%s %s', __( 'Search', 'fulcrum' ), $this->config->plural_name ),
 			'not_found'          => sprintf( __( 'No %s found', 'fulcrum' ), strtolower( $this->config->singular_name ) ),
 			'not_found_in_trash' => sprintf( __( 'No %s found in Trash', 'fulcrum' ), strtolower( $this->config->plural_name ) ),
-			'parent_item_colon'  => '',
+			'parent_item_colon'  => 'Parent:',
 			'all_items'          => sprintf( '%s %s', __( 'All', 'fulcrum' ), $this->config->plural_name ),
 			'menu_name'          => _x( $this->config->plural_name, 'admin menu', 'fulcrum' ),
 		);

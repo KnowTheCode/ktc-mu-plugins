@@ -3,10 +3,10 @@
  * Docx Plugin Runtime Configuration Parameters.
  *
  * @package     KnowtheCode\Docx
- * @since       1.0.0
+ * @since       2.0.0
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
 
 namespace KnowtheCode\Docx;
@@ -38,10 +38,6 @@ return array(
 			'provider' => 'provider.post_type',
 			'config'   => DOCX_PLUGIN_DIR . 'config/post-type/docx.php',
 		),
-		'docx.permalink_handler' => array(
-			'provider' => 'provider.post_type_permalink',
-			'config'   => DOCX_PLUGIN_DIR . 'config/post-type/docx-permalinks.php',
-		),
 
 		/****************************
 		 * Taxonomy
@@ -72,9 +68,5 @@ return array(
 			'config'   => DOCX_PLUGIN_DIR . 'config/template/docx-template.php',
 		),
 	),
-
-//	'register_concretes' => array(
-//
-//	),
 );
 

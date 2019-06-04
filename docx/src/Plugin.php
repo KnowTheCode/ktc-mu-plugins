@@ -29,22 +29,22 @@ class Plugin extends Addon {
 	 */
 	const MIN_WP_VERSION = '4.5';
 
-	/**
-	 * Initialize this plugin.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-	protected function init_addon() {
-		parent::init_addon();
-
-		if ( ! is_admin() ) {
-			return;
-		}
-
-		add_action( 'fulcrum_init_rewrites', array( $this, 'add_rewrite_rules' ), 1 );
-	}
+//	/**
+//	 * Initialize this plugin.
+//	 *
+//	 * @since 1.0.0
+//	 *
+//	 * @return void
+//	 */
+//	protected function init_addon() {
+//		parent::init_addon();
+//
+//		if ( ! is_admin() ) {
+//			return;
+//		}
+//
+////		add_action( 'fulcrum_init_rewrites', array( $this, 'add_rewrite_rules' ), 1 );
+//	}
 
 	/**
 	 * Add the rewrite rules for our custom permalink structure.

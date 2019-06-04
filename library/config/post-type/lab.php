@@ -31,7 +31,14 @@ return [
 			'description'  => 'Labs - Hands-on code building projects',
 		],
 		'labels'                => [
-			'archive' => 'Labs',
+			'archive'                => 'Labs',
+			'name'                   => 'Labs',
+			'singular_name'          => 'Lab',
+			'add_new_item'           => 'Add New Lab',
+			'parent_item_colon'      => 'Parent Lab:',
+			'item_published'         => 'Lab published',
+			'item_reverted_to_draft' => 'Lab reverted to draft.',
+			'item_updated'           => 'Lab updated',
 		],
 		'additional_supports'   => [
 			'author'                            => false,

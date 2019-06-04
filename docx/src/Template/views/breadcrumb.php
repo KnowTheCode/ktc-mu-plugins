@@ -1,1 +1,1 @@
-<span itemprop="name"><a href="<?php echo esc_url( $url ); ?>" itemprop="item"><span itemprop="name"><?php esc_html_e( $name ); ?></span></a></span>
+<span itemprop="name"><a href="<?php echo esc_url( get_permalink( $parent_id ) ); ?>" itemprop="item"><span itemprop="name"><?php esc_html_e( get_the_title( $parent_id ) ); ?></span></a>

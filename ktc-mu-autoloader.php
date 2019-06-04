@@ -11,6 +11,8 @@
 
 namespace KnowTheCode;
 
+//require_once __DIR__ . '/debug-toolkit/debug-toolkit.php';
+
 // Load and launch Fulcrum first.
 require_once 'fulcrum/bootstrap.php';
 $fulcrum = \Fulcrum\launch();
