@@ -5,11 +5,11 @@
  * @package     KnowtheCode\Docx\Support
  * @since       1.0.0
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
-namespace KnowtheCode\Docx\Support;
 
+namespace KnowtheCode\Docx\Support;
 
 /**
  * Get the technology term from the query. Uses wp_query
@@ -104,4 +104,3 @@ function insert_technology_into_breadcrumb( $html, $technology_html, $separator,
 
 	return $html;
 }
-

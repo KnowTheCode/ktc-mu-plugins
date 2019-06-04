@@ -5,9 +5,10 @@
  * @package     KnowTheCode\Docx\Template
  * @since       1.0.0
  * @author      hellofromTonya
- * @link        https://UpTechLabs.io
- * @license     GNU General Public License 2.0+
+ * @link        https://KnowTheCode.io
+ * @license     GPL-2.0+
  */
+
 namespace KnowTheCode\Docx\Template;
 
 use KnowtheCode\Docx\Support as support;
